@@ -5,18 +5,30 @@ let dateFormat = dayjs().format('dddd, MMMM D');
 date.append(dateFormat);
 // Accesses the container where the timeblocks go
 let timeBlock = $('.container');
+// Uses 24 hour format for day.js compatibility
 let hours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
+
 // Adds a time block to the page 9 times
 for (let i = 0; i < 9; i++) {
+    // Converts the hour to a 24 hour format to a 12 hour one for the user
+    let hourLabel;
+    if (hours[i] === 12) {
+        hourLabel = "12 PM";
+    } else if (hours[i] < 12) {
+        hourLabel = `${hours[i]} AM`;
+    } else {
+        hourLabel = `${hours[i] - 12} PM`;
+    }
+
     let blockContent = $(`<div class="container">
     <div class="row" data-index-number='${i}'>
-        <div class="col-2 hour d-flex justify-content-center align-items-center">${hours[i]}</div>
+        <div class="col-2 hour d-flex justify-content-center align-items-center">${hourLabel}</div >
         <textarea type="text" class="future col-8 d-flex align-items-center user-input"></textarea>
         <button class="col-2 saveBtn d-flex justify-content-center align-items-center">
     <span class="material-symbols-outlined">save</span>
     </button>
-    </div>
-</div>`);
+    </div >
+</div > `);
     // Changes the textarea colour based on the time of day, .future is the default thus not needed in this if/else block
     if (hours[i] < dayjs().hour()) {
         blockContent.find('textarea').addClass('past');
@@ -36,7 +48,7 @@ timeBlock.on('click', '.saveBtn', function () {
     localStorage.setItem('timeBlock ' + index, textValue);
 });
 
-// Returns the user input (value) back to its indexed position after a page reload
+// Returns the user input (value) back to its indexed position after a page reload, ensuring it persists
 $(document).ready(function () {
     for (let i = 0; i < 9; i++) {
         let key = 'timeBlock ' + i;
@@ -46,4 +58,4 @@ $(document).ready(function () {
             $('.row[data-index-number="' + i + '"]').find('textarea').val(value);
         }
     }
-});
+})
