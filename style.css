@@ -43,6 +43,7 @@ header {
   border-top: 1px dashed #000000;
 }
 
+/* Moved future styling so that it is ran first and can be overriden by past and present */
 .future {
   background-color: #77dd77;
   color: white;
