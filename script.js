@@ -12,11 +12,21 @@ for (let i = 0; i < 9; i++) {
     let blockContent = `<div class="container">
     <div class="row">
         <div class="col-2 hour d-flex justify-content-center align-items-center">${hours[i]}</div>
-        <div class="col-8 future d-flex align-items-center">New event</div>
-        <div class="col-2 saveBtn d-flex justify-content-center align-items-center">
+        <textarea type="text" class="col-8 future d-flex align-items-center user-input"></textarea>
+        <button class="col-2 saveBtn d-flex justify-content-center align-items-center">
     <span class="material-symbols-outlined">save</span>
-    </div>
+    </button>
     </div>
 </div>`;
     timeBlock.append(blockContent);
 }
+
+
+{/* <div class="row">
+<div class="col-2 hour d-flex justify-content-center align-items-center">${hours[i]}</div>
+<div class="col-8 future d-flex align-items-center"><textarea type="text" class="user-input" placeholder="Enter event"></textarea></div>
+<button class="col-2 saveBtn d-flex justify-content-center align-items-center">
+<span class="material-symbols-outlined">save</span>
+</button>
+</div>
+</div>`; */}

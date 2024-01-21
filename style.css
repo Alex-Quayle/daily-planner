@@ -59,6 +59,8 @@ header {
 }
 
 .saveBtn {
+  /* Added border style to remove the border that formed around the whole button */
+  border: none;
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -69,4 +71,9 @@ header {
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+.user-input {
+  /* Resolves user input text being white as the default */
+  color: black;
 }
