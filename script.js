@@ -6,7 +6,7 @@ date.append(dateFormat);
 // Accesses the container where the timeblocks go
 let timeBlock = $('.container');
 let hours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
-// Adds a time block to the page 8 times
+// Adds a time block to the page 9 times
 for (let i = 0; i < 9; i++) {
     let blockContent = $(`<div class="container">
     <div class="row" data-index-number='${i}'>
@@ -33,5 +33,17 @@ timeBlock.on('click', '.saveBtn', function () {
     // Retrieves the user input and stores it in a variable
     let textValue = $(this).siblings('textarea').val();
     // Saves the text into local storage, with the index variable allowing for multiple stored values
-    localStorage.setItem('Time Block ' + index, textValue);
+    localStorage.setItem('timeBlock ' + index, textValue);
+});
+
+// Returns the user input (value) back to its indexed position after a page reload
+$(document).ready(function () {
+    for (let i = 0; i < 9; i++) {
+        let key = 'timeBlock ' + i;
+        let value = localStorage.getItem(key);
+        if (value !== null) {
+            // Finds the row with the corresponding index number and assigns the value
+            $('.row[data-index-number="' + i + '"]').find('textarea').val(value);
+        }
+    }
 });
