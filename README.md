@@ -2,9 +2,7 @@
 
 ## Description
 
-The landing page for Horiseon, a fictional company that helps optimise SEO (an educated guess from the project brief!). This project was refactoring an existing codebase to introduce accessibility techniques such as semantic tags (as opposed to an entire page made up of divs) and alternative (alt) text. Additionally, the CSS stylesheet was analysed and reorganised for clarity and ease of use for future developers.
-
-I haven't refactored code before, so it was great to approach a project in this way and identify what can be changed and improved upon, something I can imagine is a regular occurence in codebases with thousands of lines of code. It was a great project to put into practice what we have learned so far, I really enjoyed it.
+This is daily planner designed to help a busy individual plan and keep track of their weekly commitments. This project was a chance to apply many of the concepts learnt inside and out of class, including event delegation, local storage, persistent data, and jQuery. I enjoyed tackling this project and particularly liked discovering a solution to prevent duplicate timeblock code within the HTML.
 
 ## Installation
 
